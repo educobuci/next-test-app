@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import Users from '@/models/users';
 
 export default async function Home() {
@@ -5,5 +6,6 @@ export default async function Home() {
 
   return <div className="flex flex-col items-start p-8">
     Hello, next { users.length }!
+    <Button>Button</Button>
   </div>;
 }
