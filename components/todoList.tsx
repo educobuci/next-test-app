@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { TodoItem } from '@/domain/TodoItem'
 
 import { Input } from '@/components/ui/input'
+import { Button } from './ui/button'
 
 interface TodoListProps {
   todoItems: TodoItem[]
@@ -27,14 +28,15 @@ export default function TodoList({ todoItems }: TodoListProps) {
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
         TODO
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex gap-2">
         <Input
+          autoFocus
           type="text"
           placeholder="Add new todo"
           onChange={(e) => setNewItem(e.target.value)}
           value={newItem}
         />
-        <button type="submit">Add</button>
+        <Button type="submit">Add</Button>
       </form>
       <ul>
         {items.map((item) => (
