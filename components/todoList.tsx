@@ -45,6 +45,7 @@ export default function TodoList({ todoItems }: TodoListProps) {
               id={`${item.id}`}
               type="checkbox"
               checked={item.isCompleted}
+              onChange={() => {}}
             />
             <label htmlFor={`${item.id}`}> {item.title}</label>
           </li>
