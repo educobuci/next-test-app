@@ -1,6 +1,6 @@
 import { expect, describe, it } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import TodoList from '../components/todoList'
+import TodoList from '@/components/todoList'
 
 describe('Todo', () => {
   it('should list all todo items', () => {

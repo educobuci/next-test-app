@@ -1,7 +1,9 @@
 'use client'
 
-import { TodoItem } from '@/domain/TodoItem'
 import { useState } from 'react'
+import { TodoItem } from '@/domain/TodoItem'
+
+import { Input } from '@/components/ui/input'
 
 interface TodoListProps {
   todoItems: TodoItem[]
@@ -22,8 +24,11 @@ export default function TodoList({ todoItems }: TodoListProps) {
 
   return (
     <div className="flex flex-col space-y-8">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+        TODO
+      </h1>
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type="text"
           placeholder="Add new todo"
           onChange={(e) => setNewItem(e.target.value)}

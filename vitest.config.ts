@@ -10,5 +10,10 @@ export default defineConfig({
       reporter: ['text', 'lcov'],
     },
   },
+  resolve: {
+    alias: {
+      '@': '/',
+    },
+  },
   plugins: [react()],
 })
