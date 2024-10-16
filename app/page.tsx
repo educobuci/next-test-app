@@ -1,12 +1,12 @@
 import TodoList from '@/components/todoList'
-import { ITodoListUseCase } from '@/domain/ITodoListUseCase'
+import { LoadTodoItems } from '@/usecases/types/LoadTodoItems'
 
 export interface ITodoListProps {
-  todoListUseCase: ITodoListUseCase
+  loadTodoItems: LoadTodoItems
 }
 
-export default async function Page({ todoListUseCase }: ITodoListProps) {
-  const todoItems = await todoListUseCase.getTodoItems()
+export default async function Page({ loadTodoItems }: ITodoListProps) {
+  const todoItems = await loadTodoItems()
 
   return (
     <main className="flex flex-col items-center justify-center md:h-screen space-y-8">

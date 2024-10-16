@@ -21,19 +21,18 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout() {
-  const todoListUseCase = {
-    getTodoItems: async () => [
-      { id: 1, title: 'todo 1', isCompleted: true },
-      { id: 2, title: 'todo 2', isCompleted: false },
-      { id: 3, title: 'todo 3', isCompleted: false },
-    ],
-  }
+  const loadTodoItems = async () => [
+    { id: 1, title: 'todo 1', isCompleted: true },
+    { id: 2, title: 'todo 2', isCompleted: false },
+    { id: 3, title: 'todo 3', isCompleted: false },
+  ]
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TodoList todoListUseCase={todoListUseCase} />
+        <TodoList loadTodoItems={loadTodoItems} />
       </body>
     </html>
   )
