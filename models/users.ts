@@ -1,7 +1,11 @@
-import { DatabaseConnection, DatabaseQueryFactory, DataMapper } from "datamapper"
+import {
+  DatabaseConnection,
+  DatabaseQueryFactory,
+  DataMapper,
+} from 'datamapper'
 
-import { User } from "@/domain/User"
-import connection from "@/lib/connection"
+import { User } from '@/domain/User'
+import db from '@/lib/db'
 
 const createUsers = (connection: DatabaseConnection) => {
   const factory = new DatabaseQueryFactory<User>(
@@ -14,5 +18,5 @@ const createUsers = (connection: DatabaseConnection) => {
   return new DataMapper(factory)
 }
 
-const Users = createUsers(connection)
+const Users = createUsers(db)
 export default Users

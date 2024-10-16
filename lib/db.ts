@@ -8,6 +8,6 @@ const pool = new Pool({
   host: process.env.PG_HOST,
   database: process.env.PG_DATABASE,
 })
-const connection = new PostgresConnection(pool)
+const db = new PostgresConnection(pool)
 
-export default connection
+export default db
