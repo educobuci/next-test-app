@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import React from 'react'
 import TodoList from './page'
+import { LoadTodoList } from '@/usecases/types/LoadTodoList'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -21,18 +22,23 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout() {
-  const loadTodoItems = async () => [
-    { id: 1, title: 'todo 1', isCompleted: true },
-    { id: 2, title: 'todo 2', isCompleted: false },
-    { id: 3, title: 'todo 3', isCompleted: false },
-  ]
+  const loadTodoItems: LoadTodoList = () =>
+    Promise.resolve({
+      id: 1,
+      title: 'TODO',
+      items: [
+        { id: 1, title: 'todo 1', isCompleted: true },
+        { id: 2, title: 'todo 2', isCompleted: false },
+        { id: 3, title: 'todo 3', isCompleted: false },
+      ],
+    })
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TodoList loadTodoItems={loadTodoItems} />
+        <TodoList loadTodoList={loadTodoItems} />
       </body>
     </html>
   )

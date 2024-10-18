@@ -2,12 +2,10 @@ import TodoList from '@/components/todoList'
 import { LoadTodoList } from '@/usecases/types/LoadTodoList'
 
 export interface ITodoListProps {
-  loadTodoItems: LoadTodoList
+  loadTodoList: LoadTodoList
 }
 
-export default async function Page({
-  loadTodoItems: loadTodoList,
-}: ITodoListProps) {
+export default async function Page({ loadTodoList }: ITodoListProps) {
   const todoList = await loadTodoList()
 
   return (
