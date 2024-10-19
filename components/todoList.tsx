@@ -24,11 +24,13 @@ export default function ({ todoList }: TodoListProps) {
           {todoList.items.map((item, index) => (
             <li
               key={index}
-              className={`${
-                item.isCompleted && 'line-through'
-              } border-t border-slate-200 p-2`}
+              className={`
+                border-t border-slate-200 p-2 flex items-center space-x-2
+                ${item.isCompleted && 'line-through'}
+              `}
             >
               <input
+                className="border border-slate-300 rounded-sm"
                 id={`${index}`}
                 type="checkbox"
                 checked={item.isCompleted}
