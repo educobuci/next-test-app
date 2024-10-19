@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from './ui/button'
 import { TodoList } from '@/domain/entities/TodoList'
 import { Card, CardContent, CardHeader } from './ui/card'
+import { cn } from '@/lib/utils'
+import { Checkbox } from './ui/checkbox'
 
 interface TodoListProps {
   todoList: TodoList
@@ -24,18 +26,12 @@ export default function ({ todoList }: TodoListProps) {
           {todoList.items.map((item, index) => (
             <li
               key={index}
-              className={`
-                border-t border-slate-200 p-2 flex items-center space-x-2
-                ${item.isCompleted && 'line-through'}
-              `}
+              className={cn(
+                item.isCompleted && 'line-through',
+                'border-t border-slate-200 p-1 py-3 flex items-center space-x-2'
+              )}
             >
-              <input
-                className="border border-slate-300 rounded-sm"
-                id={`${index}`}
-                type="checkbox"
-                checked={item.isCompleted}
-                onChange={() => {}}
-              />
+              <Checkbox checked={item.isCompleted} />
               <label htmlFor={`${index}`}> {item.title}</label>
             </li>
           ))}
