@@ -1,3 +1,3 @@
-import { TodoList } from '@/domain/TodoList'
+import { TodoList } from '@/domain/entities/TodoList'
 
-export type LoadTodoList = () => Promise<TodoList>
+export type LoadTodoList = (id: number) => Promise<TodoList>

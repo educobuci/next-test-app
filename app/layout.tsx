@@ -4,6 +4,8 @@ import './globals.css'
 import React from 'react'
 import TodoList from './page'
 import { LoadTodoList } from '@/usecases/types/LoadTodoList'
+import { createLoadTodoList } from '@/usecases/createLoadTodoList'
+import { TodoListRepository } from '@/repositories/TodoListRepository'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -22,23 +24,14 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout() {
-  const loadTodoItems: LoadTodoList = () =>
-    Promise.resolve({
-      id: 1,
-      title: 'TODO',
-      items: [
-        { id: 1, title: 'todo 1', isCompleted: true },
-        { id: 2, title: 'todo 2', isCompleted: false },
-        { id: 3, title: 'todo 3', isCompleted: false },
-      ],
-    })
+  const loadTodoList = createLoadTodoList(new TodoListRepository())
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TodoList loadTodoList={loadTodoItems} />
+        <TodoList loadTodoList={loadTodoList} />
       </body>
     </html>
   )

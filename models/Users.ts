@@ -4,7 +4,7 @@ import {
   DataMapper,
 } from 'datamapper'
 
-import { User } from '@/domain/User'
+import { User } from '@/domain/entities/User'
 import db from '@/lib/db'
 
 const createUsers = (connection: DatabaseConnection) => {

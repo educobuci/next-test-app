@@ -1,4 +1,4 @@
-import { User } from '@/domain/User'
+import { User } from '@/domain/entities/User'
 
 export interface TodoList {
   id: number

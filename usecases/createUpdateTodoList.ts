@@ -1,4 +1,4 @@
-import { TodoList } from '@/domain/TodoList'
+import { TodoList } from '@/domain/entities/TodoList'
 import { UpdateTodoList } from '@/usecases/types/UpdateTodoList'
 
 export function createUpdateTodoList(): UpdateTodoList {

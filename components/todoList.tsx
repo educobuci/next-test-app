@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { Input } from '@/components/ui/input'
 import { Button } from './ui/button'
-import { TodoList } from '@/domain/TodoList'
+import { TodoList } from '@/domain/entities/TodoList'
 
 interface TodoListProps {
   todoList: TodoList
