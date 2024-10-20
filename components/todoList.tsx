@@ -14,12 +14,29 @@ interface TodoListProps {
 }
 
 export default function ({ todoList }: TodoListProps) {
+  const [newTodo, setNewTodo] = useState('')
+  const onNewTodoChnage = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setNewTodo(e.target.value)
+  const handleAddTodo = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    todoList.items.push({ title: newTodo, isCompleted: false })
+    setNewTodo('')
+  }
   return (
     <Card className="w-full max-w-96">
       <CardHeader>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
           TODO
         </h1>
+        <form onSubmit={handleAddTodo} className="flex items-center space-x-2">
+          <Input
+            autoFocus
+            placeholder="Add new todo"
+            value={newTodo}
+            onChange={onNewTodoChnage}
+          />
+          <Button>Add</Button>
+        </form>
       </CardHeader>
       <CardContent>
         <ul>
